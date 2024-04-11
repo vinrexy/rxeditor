@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+		<title>RXEditor Demo</title>
+
+		<link rel="stylesheet" href="resource/themes/default.css" id="theme-style" />
+		  
+		<script src="resource/rxeditor.js"></script>
+		<script src="resource/icons/monocons.js"></script>
+		<script src="resource/formats/bbcode.js"></script>
+
+		<style>
+			html {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 13px;
+			}
+			form div {
+				padding: .5em;
+			}
+			code:before {
+				position: absolute;
+				content: 'Code:';
+				top: -1.35em;
+				left: 0;
+			}
+			code {
+				margin-top: 1.5em;
+				position: relative;
+				background: #eee;
+				border: 1px solid #aaa;
+				white-space: pre;
+				padding: .25em;
+				min-height: 1.25em;
+			}
+			code:before, code {
+				display: block;
+				text-align: left;
+			}
+			.rxeditor-container {
+				background: antiquewhite;
+			}
+			.rxeditor-container iframe, .rxeditor-container textarea {
+				background: antiquewhite;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post">
+			<div>
+				<textarea id="example" style="height:420px;width:370px;">
+<b>致亲爱的冒险家们：</b>
+
+<color=#FF764C>【冒险岛：联盟的意志】</color>将于2024年2月28日（周三）9:00 进行停服更新，期间将无法登入游戏，预计持续<color=#FF764C>2小时</color>左右，请各位冒险家知晓并互相转告，具体开服时间会根据实际情况延后或提前，敬请谅解。
+
+<color=#FF764C>【更新福利】</color>：红钻 x 300 血瓶 x 20
+
+亲爱的冒险家，为了提供更优质的服务，现为您准备了<color=#ff851b><size=28>专属微信客服通道</size></color>，添加菇菇好友，即可享受：
+
+●菇菇好友专属礼包
+●一对一实时解决游戏体验问题
+●不定时福利礼包放送
+●最新版本、活动等资讯爆料
+（更多专属服务将陆续推出）
+
+添加方式
+<b><color=#ba372a>【<on click='onClickURL' param='https://scrm.rastargame.com/dl/iUFB7j-sys'><u>点此添加菇菇好友</u></on>】</color></b>，长按识别二维码即可添加！
+
+
+<img src="wechat" width=430 height=124 click="handler" /></textarea>
+<img />
+			</div>
+
+			<div>
+				<label for="theme">Theme:</label>
+				<select id="theme">
+					<option value="default">Default</option>
+					<option value="defaultdark">Default dark</option>
+					<option value="modern">Modern</option>
+					<option value="office-toolbar">Office Toolbar</option>
+					<option value="office">Office</option>
+					<option value="square">Square</option>
+				</select>
+			</div>
+		</form>
+
+
+		<script>
+			var textarea = document.getElementById('example');
+			rxeditor.create(textarea, {
+				format: 'bbcode',
+				icons: 'monocons',
+				style: 'resource/themes/content/default.css',
+				toolbar: 'bold,italic,underline,strike,size,color,removeformat,image,date,time,maximize,source',
+			});
+
+			var themeInput = document.getElementById('theme');
+			themeInput.onchange = function() {
+				var theme = 'resource/themes/' + themeInput.value + '.css';
+
+				document.getElementById('theme-style').href = theme;
+			};
+		</script>
+
+		<p>RXEditor is licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a></p>
+	</body>
+</html>
